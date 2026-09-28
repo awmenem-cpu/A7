@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A7 — Premium Music</title>
+<style>
+:root{--bg:#090a0c;--panel:#111316;--panel2:#17191d;--line:#282b30;--text:#f5f5f5;--muted:#8d929a;--accent:#d9ff4a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,sans-serif;min-height:100vh}button,input{font:inherit}
+aside{position:fixed;right:0;top:0;bottom:0;width:250px;background:#0d0e10;border-left:1px solid var(--line);padding:30px 20px;z-index:5}
+.logo{font-size:34px;font-weight:900;letter-spacing:-2px;margin-bottom:55px}.logo span{color:var(--accent)}
+.nav{width:100%;border:0;background:none;color:var(--muted);padding:14px 15px;border-radius:10px;text-align:right;margin:4px 0;cursor:pointer}.nav:hover,.nav.active{background:#fff;color:#000}
+.label{color:#555b64;font-size:11px;margin:42px 10px 10px;text-transform:uppercase;letter-spacing:2px}
+main{margin-right:250px;padding:30px 4% 145px;max-width:1450px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:20px}.hello{color:var(--muted);margin:0}.top h1{font-size:40px;margin:5px 0 30px}.search{width:390px;background:#111316;border:1px solid var(--line);border-radius:10px;padding:14px 18px;color:#fff;outline:none}.search:focus{border-color:#fff}
+.hero{display:grid;grid-template-columns:1.5fr 1fr;gap:25px;min-height:310px;margin-bottom:35px}
+.heroCard{position:relative;overflow:hidden;border-radius:18px;background:linear-gradient(135deg,#191b1f,#0f1012);border:1px solid var(--line);padding:40px}.heroCard h2{font-size:48px;line-height:1.05;margin:15px 0}.heroCard p{color:var(--muted);max-width:530px;line-height:1.8}.badge{display:inline-block;background:var(--accent);color:#000;border-radius:5px;padding:7px 10px;font-size:11px;font-weight:bold}
+.visual{border-radius:18px;background:linear-gradient(135deg,#25282c,#0e0f11);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}.visual:before{content:"A7";font-size:250px;font-weight:900;color:#ffffff08;position:absolute}.record{width:190px;height:190px;border-radius:50%;background:repeating-radial-gradient(circle,#111 0 4px,#222 5px 7px);border:10px solid #191b1e;box-shadow:0 0 0 1px #555;display:grid;place-items:center;z-index:1}.record div{width:55px;height:55px;border-radius:50%;background:var(--accent);color:#000;display:grid;place-items:center;font-weight:900}
+.section{margin-top:30px}.head{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px}.head h2{font-size:23px}.muted{color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}.card{background:var(--panel);border:1px solid var(--line);padding:11px;border-radius:13px;cursor:pointer;transition:.2s}.card:hover{transform:translateY(-4px);background:var(--panel2)}.cover{aspect-ratio:1;border-radius:9px;background:linear-gradient(135deg,#34383d,#141518);display:grid;place-items:center;font-size:42px;margin-bottom:12px}.card b{display:block;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.card small{display:block;color:var(--muted);margin-top:6px}
+.results{display:grid;gap:9px}.song{display:grid;grid-template-columns:58px 1fr auto;align-items:center;gap:14px;background:var(--panel);border:1px solid var(--line);padding:9px;border-radius:11px}.art{width:58px;height:58px;border-radius:8px;object-fit:cover;background:#222}.song h3{margin:0 0 5px;font-size:15px}.song small{color:var(--muted)}.play{width:39px;height:39px;border-radius:50%;border:0;background:var(--accent);color:#000;cursor:pointer}
+.empty{text-align:center;padding:35px;border:1px dashed var(--line);border-radius:12px;color:var(--muted)}
+.player{position:fixed;bottom:0;left:15px;right:15px;margin-right:250px;height:82px;background:#101114f2;backdrop-filter:blur(18px);border:1px solid var(--line);border-radius:15px 15px 0 0;z-index:8;display:grid;grid-template-columns:1fr 1.6fr 1fr;align-items:center;padding:10px 18px;gap:20px}.now{display:flex;align-items:center;gap:11px}.mini{width:54px;height:54px;border-radius:8px;background:var(--accent);color:#000;display:grid;place-items:center;font-weight:900}.now small{display:block;color:var(--muted);margin-top:4px}.controls{display:flex;justify-content:center;align-items:center;gap:15px}.controls button{background:none;border:0;color:#fff;font-size:18px;cursor:pointer}.controls .main{width:43px;height:43px;border-radius:50%;background:#fff;color:#000}.controls input{width:55%}.vol{display:flex;justify-content:flex-end;gap:8px}.notice{font-size:11px;color:#555b64;margin-top:14px}
+@media(max-width:1050px){.cards{grid-template-columns:repeat(3,1fr)}.hero{grid-template-columns:1fr}.visual{min-height:180px}}
+@media(max-width:800px){aside{display:none}main{margin:0;padding:20px 12px 135px}.top{display:block}.search{width:100%;margin:10px 0 20px}.top h1{font-size:32px}.heroCard h2{font-size:36px}.cards{grid-template-columns:repeat(2,1fr)}.player{margin-right:0;left:5px;right:5px;bottom:5px;grid-template-columns:1fr;height:88px}.now,.vol{display:none}}
+</style>
+</head>
+<body>
+<aside>
+<div class="logo">A7 <span>●</span></div>
+<button class="nav active">⌂ الرئيسية</button>
+<button class="nav" onclick="document.getElementById('search').focus()">⌕ البحث</button>
+<button class="nav">♡ المفضلة</button>
+<button class="nav">▣ قوائم التشغيل</button>
+<div class="label">Library</div>
+<button class="nav">◷ استمعت إليها مؤخراً</button>
+<button class="nav">＋ إنشاء قائمة</button>
+</aside>
+<main>
+<div class="top"><div><p class="hello">مساء الخير 👋</p><h1>جاهز للموسيقى؟</h1></div><input id="search" class="search" placeholder="ابحث عن أغنية، فنان أو ألبوم..."></div>
+<section class="hero">
+<div class="heroCard"><span class="badge">A7 PREMIUM</span><h2>صوتك.<br>مزاجك.</h2><p>واجهة موسيقى مصممة كأنها منتج حقيقي: بسيطة، قوية، وسريعة. ابحث واكتشف وشغّل الموسيقى المتاحة للبث الكامل.</p></div>
+<div class="visual"><div class="record"><div>A7</div></div></div>
+</section>
+<section class="section"><div class="head"><h2>اختيارات A7</h2><span class="muted">موسيقى للاستكشاف</span></div><div class="cards">
+<div class="card"><div class="cover">♫</div><b>Night Drive</b><small>Electronic</small></div>
+<div class="card"><div class="cover">◒</div><b>Focus Mode</b><small>Ambient</small></div>
+<div class="card"><div class="cover">✦</div><b>Late Hours</b><small>Indie</small></div>
+<div class="card"><div class="cover">◉</div><b>Energy</b><small>Beats</small></div>
+<div class="card"><div class="cover">A7</div><b>Discover</b><small>New sounds</small></div>
+</div></section>
+<section class="section"><div class="head"><h2>نتائج البحث</h2><span id="count" class="muted"></span></div><div id="results"><div class="empty">اكتب اسم أغنية أو فنان للبحث.</div></div><div class="notice">الموسيقى الكاملة متاحة فقط عندما يسمح مصدرها بالاستماع الكامل.</div></section>
+</main>
+<footer class="player"><div class="now"><div class="mini">A7</div><div><b id="nowTitle">لا توجد أغنية</b><small id="nowArtist">A7 Music</small></div></div><div class="controls"><button id="prev">⏮</button><button id="mainplay" class="main">▶</button><button id="next">⏭</button><input id="progress" type="range" min="0" max="100" value="0"></div><div class="vol">🔊 <input id="volume" type="range" min="0" max="1" step=".01" value=".8"></div></footer>
+<audio id="audio"></audio>
+<script>
+const search=document.getElementById('search'),results=document.getElementById('results'),audio=document.getElementById('audio'),mainplay=document.getElementById('mainplay'),progress=document.getElementById('progress'),volume=document.getElementById('volume');let tracks=[],current=-1,timer;
+function esc(s){return String(s||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
+async function searchArchive(){let q=search.value.trim();if(q.length<2){return}results.innerHTML='<div class="empty">جاري البحث...</div>';try{let u='https://archive.org/advancedsearch.php?q='+encodeURIComponent('mediatype:audio AND ('+q+')')+'&fl[]=identifier&fl[]=title&fl[]=creator&rows=18&output=json';let d=await(await fetch(u)).json(),docs=d.response?.docs||[],out=[];for(let x of docs.slice(0,12)){try{let m=await(await fetch('https://archive.org/metadata/'+encodeURIComponent(x.identifier))).json();let fs=(m.files||[]).filter(f=>/\.(mp3|ogg|wav|flac)$/i.test(f.name||''));let f=fs.find(a=>/mp3/i.test(a.name))||fs[0];if(f)out.push({title:x.title||x.identifier,artist:x.creator||'Internet Archive',id:x.identifier,url:'https://archive.org/download/'+encodeURIComponent(x.identifier)+'/'+encodeURIComponent(f.name),img:'https://archive.org/services/img/'+encodeURIComponent(x.identifier)})}catch(e){}}tracks=out;render()}catch(e){results.innerHTML='<div class="empty">تعذر الاتصال بالمكتبة.</div>'}}
+function render(){if(!tracks.length){results.innerHTML='<div class="empty">ملقتش نتيجة مناسبة.</div>';return}document.getElementById('count').textContent=tracks.length+' نتائج';results.innerHTML='';tracks.forEach((t,i)=>{let r=document.createElement('div');r.className='song';r.innerHTML='<img class="art" src="'+t.img+'"><div><h3>'+esc(t.title)+'</h3><small>'+esc(t.artist)+'</small></div><button class="play">▶</button>';r.querySelector('button').onclick=()=>load(i);results.appendChild(r)})}
+function load(i){current=i;audio.src=tracks[i].url;nowTitle.textContent=tracks[i].title;nowArtist.textContent=tracks[i].artist;audio.play();mainplay.textContent='⏸'}
+mainplay.onclick=()=>{if(current<0)return;if(audio.paused){audio.play();mainplay.textContent='⏸'}else{audio.pause();mainplay.textContent='▶'}};next.onclick=()=>{if(tracks.length)load((current+1)%tracks.length)};prev.onclick=()=>{if(tracks.length)load((current-1+tracks.length)%tracks.length)};audio.ontimeupdate=()=>progress.value=audio.duration?audio.currentTime/audio.duration*100:0;progress.oninput=()=>{if(audio.duration)audio.currentTime=progress.value/100*audio.duration};volume.oninput=()=>audio.volume=volume.value;audio.onended=()=>{if(tracks.length)load((current+1)%tracks.length)};search.onkeydown=e=>{if(e.key==='Enter')searchArchive()};search.oninput=()=>{clearTimeout(timer);if(search.value.trim().length>=3)timer=setTimeout(searchArchive,600)}
+</script>
+</body></html>
